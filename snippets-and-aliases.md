@@ -45,7 +45,6 @@ notes() {
     echo "onotes - opens a note using fzf"
     echo "snotes - opens a note using fzf and allows for word search"
     return 0
-  fi
   elif [[ -z $1 ]]; then
     nvim "$HOME/notes/$(date +"%Y-%m-%d").md"
   else
