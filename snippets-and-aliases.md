@@ -30,9 +30,23 @@ alias gdp="git checkout $(git remote show origin | grep -i "head" | awk '{ print
 
 ## Quick notes
 ```bash
+
 # create quick notes. If no argument is given, it creates a note with the current date as filename, else it creates a note with the given argument as filename
 notes() {
-  if [[ -z $1 ]]; then
+  if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    echo "notes - a small collection of functions used to create and navigate quick notes"
+    echo
+    echo "Usage:"
+    echo "notes -h | --help - shows this help message"
+    echo "notes - creates a note with the current date as filename"
+    echo "notes [filename] - creates a note with the given filename"
+    echo 
+    echo "lnotes - returns a list of all created notes as stdout"
+    echo "onotes - opens a note using fzf"
+    echo "snotes - opens a note using fzf and allows for word search"
+    return 0
+  fi
+  elif [[ -z $1 ]]; then
     nvim "$HOME/notes/$(date +"%Y-%m-%d").md"
   else
     if [[ -f "$HOME/notes/$1.md" ]]; then
