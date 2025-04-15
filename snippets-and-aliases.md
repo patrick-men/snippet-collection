@@ -1,6 +1,6 @@
 # Aliases
 
-```
+```bash
 # General aliases
 alias k='kubecolor --kubecolor-theme=protanopia-dark' # kubectl
 alias tc='printf "\033[H\033[2J"' # clear terminal without losing history
